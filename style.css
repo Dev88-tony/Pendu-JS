@@ -1,0 +1,75 @@
+html {
+  font-size: 62.5%; }
+body {
+  margin: 0;
+  background-color: indigo;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; }
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center; }
+footer {
+  padding: 10px; }
+
+
+section {
+  width: 80vw;
+  height: 5rem;
+  background-color: rgba(207, 192, 220, 0.667);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+#lettreATrouver {
+  font: 900 2rem sans-serif;
+}
+
+
+#ToucheFaite {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgb(255, 0, 0);
+  border: 0.1rem solid #000;
+  display: inline-block;
+  text-align: center;
+  line-height: 2.5rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  color: aqua;
+  font-size: large;}
+#coups {
+  color: aqua;
+  font: 100 1.4rem sans-serif;
+}
+
+.header-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; }
+h1 {
+  font: 900 5rem sans-serif; }
+
+
+#clavier {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap; }
+  .alpha {
+    width: 5rem;
+    height: 5rem;
+    background-color: lightgray;
+    border: 0.2rem solid #ffff00;
+    border-radius: 1rem;
+    display: inline-block;
+    text-align: center;
+    line-height: 5rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    font-size: large;}
+  .alpha:hover {
+    background-color: rgb(195, 161, 161);}
+  
