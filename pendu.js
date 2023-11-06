@@ -10,35 +10,63 @@ const mots = [
       "carotte", "chou", "salade", "radis" ];
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
-function motAleatoire() { 
-  return mots = Math.floor(Math.random() * mots.length);
-}
-////////////////////////////////////////////////////////////////
-// Selectionnez tous les elements avec la classe "alpha"
+const images = [ 
+  './Images/1.webp', 
+  './Images/2.webp', 
+  './Images/3.webp', 
+  './Images/4.webp', 
+  './Images/5.webp', 
+  './Images/6.webp' ];
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+
 const alphabet = document.querySelectorAll(".alpha");
 const ToucheFaite = document.getElementById("ToucheFaite");
 const coups = document.getElementById("coups");
 const lettreATrouver = document.getElementById("lettreATrouver");
+const motAlea = motAleatoire(mots);
 
-let lettres = '';
+let lettres = "";
 let nbCoups = 6;
-
-lettreATrouver.textContent = mots[8];
 
 alphabet.forEach(alpha => {
   alpha.addEventListener('click', function() {
     if (lettres.length < nbCoups) {
-      const lettre = alpha.textContent;
+      const [...lettre] = alpha.textContent;
       lettres += lettre;
-      ToucheFaite.textContent = `${lettres}`;
+      lettreATrouver.textContent = afficherTirets();
+      coups = afficherCoups();
     } else {
-      coups.textContent = 'Vous êtes Pendu ! ';
+      coups.textContent = `Vous êtes Pendu ! Le mot était ${motAlea}`;
     }
   });
 });
 
+function afficherCoups() {
+  let coupsRestants = nbCoups - lettres.length;
+  if (coupsRestants >= 0) {
+    document.getElementById('Image').src = images[6 - coupsRestants - 1];
+    return coupsRestants + 1;
+  } else {
+    document.getElementById('Image').src = images[0];
+    return '';
+  }
+}
 
+function afficherTirets() {
+  let tirets = "";
+  for (let i = 0; i < motAlea.length; i++) {
+    tirets += " _ ";
+  }
+  return tirets;
+}
 
-console.log(mots);
+function motAleatoire(mots) { 
+  const indexAleatoire = Math.floor(Math.random() * mots.length);
+  return mots[indexAleatoire];
+}
+
+console.log(motAlea);
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
