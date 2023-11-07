@@ -2,10 +2,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////
 const mots = [
       "ordinateur", "banane", "chocolat", "maison", "voiture", "football", "fraise", "girafe", "television", "hamburger", "chat",
-      "chien", "ecole", "avion", "soleil", "lune", "mer", "montagne", "forêt", "fleur", "guitare", "piano", "theâtre", "fromage", 
+      "chien", "ecole", "avion", "soleil", "lune", "mer", "montagne", "foret", "fleur", "guitare", "piano", "theatre", "fromage", 
       "ciseaux", "telephone", "livre", "peinture", "danse", "musee", "montre", "jupe", "cravate", "echarpe", "portable", "stylo", 
-      "fenêtre", "porte", "table", "chaise", "lit", "bateau", "piscine", "velo", "train", "bus", "metro", "tramway", "marteau", "cle",
-      "serrure", "fenêtre", "pain", "sandwich", "pomme", "orange", "poire", "pastèque", "cerise", "abricot", "pêche", "ananas", "kiwi",
+      "fenetre", "porte", "table", "chaise", "lit", "bateau", "piscine", "velo", "train", "bus", "metro", "tramway", "marteau", "cle",
+      "serrure", "fenetre", "pain", "sandwich", "pomme", "orange", "poire", "pasteque", "cerise", "abricot", "peche", "ananas", "kiwi",
       "fraise", "framboise", "noix", "amande", "noisette", "avocat", "courgette", "tomate", "poivron", "aubergine", "oignon", "ail", "poireau",
       "carotte", "chou", "salade", "radis" ];
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -20,15 +20,21 @@ const images = [
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
-
 const alphabet = document.querySelectorAll(".alpha");
 const ToucheFaite = document.getElementById("ToucheFaite");
 const coups = document.getElementById("coups");
 const lettreATrouver = document.getElementById("lettreATrouver");
-const motAlea = motAleatoire(mots);
+const btn = document.getElementById("btn");
+const image = document.getElementById("Image").src;
+const rejouer = document.getElementById("btn");
+let motAlea = motAleatoire(mots);
 
 let lettres = "";
 let nbCoups = 6;
+
+btn.addEventListener('click', function() {
+  reJouer();
+});
 
 alphabet.forEach(alpha => {
   alpha.addEventListener('click', function() {
@@ -57,7 +63,7 @@ function afficherCoups() {
 function afficherTirets() {
   let tirets = "";
   for (let i = 0; i < motAlea.length; i++) {
-    tirets += " _ ";
+    tirets += "_ ";
   }
   return tirets;
 }
@@ -67,6 +73,16 @@ function motAleatoire(mots) {
   return mots[indexAleatoire];
 }
 
-console.log(motAlea);
+function reJouer() {
+  lettres = "";
+  motAlea = motAleatoire(mots);
+  coups.textContent = "";
+  lettreATrouver.textContent = afficherTirets();
+  document.getElementById('Image').src = image;
+
+  alphabet.forEach(alpha => {
+    alpha.disabled = false;
+  });
+}
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////

@@ -13,34 +13,28 @@ main {
 footer {
   padding: 10px; }
 
-
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1rem;}
 #lettreATrouver {
-  font: 900 2rem sans-serif;}
-
+  margin: 5rem;
+  font: 900 2.5rem sans-serif;}
 
 #coups {
   color: aqua;
   font: 100 1.4rem sans-serif;}
 
-.header-div {
+#mot {
   display: flex;
   text-align: center;
   flex-direction: column;
-  align-items: center; }
-h1 {
-  font: 900 5rem sans-serif; }
+  align-items: center;
+  padding: 3rem; }
 
 #clavier {
-  width: 48%;
+  width: 30rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;}
+  flex-wrap: wrap;
+  margin-top: 10rem;}
   .alpha {
     width: 5rem;
     height: 5rem;
