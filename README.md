@@ -1,1 +1,1 @@
-# Pendu-JS
+# Pendu-JS v2
