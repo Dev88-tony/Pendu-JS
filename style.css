@@ -2,7 +2,7 @@ html {
   font-size: 62.5%; }
 body {
   margin: 0;
-  background-color: rgba(114, 37, 168, 0.585);
+  background-color: rgb(47, 47, 48);
   min-height: 100vh;
   display: flex;
   flex-direction: column; }
@@ -15,12 +15,19 @@ footer {
 
 #lettreATrouver {
   margin: 5rem;
-  font: 900 2.5rem sans-serif;}
+  font: 900 2.5rem sans-serif;
+  color: #ffff00;}
 
 #coups {
   color: aqua;
   font: 100 1.4rem sans-serif;}
-
+#btn {
+  padding: 0.5rem;
+  margin: 2rem;
+  border-radius: 0.5rem;
+  background-color: #ffff00;
+  font: 900 1.5rem sans-serif;
+  cursor: pointer;}
 #mot {
   display: flex;
   text-align: center;
