@@ -22,52 +22,63 @@ const images = [
 
 const alphabet = document.querySelectorAll(".alpha");
 const coups = document.getElementById("coups");
-const lettreATrouver = document.getElementById("lettreATrouver");
 const btn = document.getElementById("btn");
 const image = document.getElementById("Image").src;
 const rejouer = document.getElementById("btn");
+const motATrouver = document.getElementById("motATrouver");
 let motAlea = motAleatoire(mots);
+let lettresATrouver = motAlea.split("");
+console.log(lettresATrouver);
 
 let lettres = "";
 let nbCoups = 6;
 
-btn.addEventListener('click', function() {
+btn.addEventListener("click", function () {
   reJouer();
 });
 
-alphabet.forEach(alpha => {
-  alpha.addEventListener('click', function() {
-    if (lettres.length < nbCoups) {
-      const [...lettre] = alpha.textContent;
-      lettres += lettre;
-      lettreATrouver.textContent = afficherTirets();
-      coups = afficherCoups();
-    } else {
-      coups.textContent = `Vous êtes Pendu ! Le mot était ${motAlea}`;
-    }
+// console.log(alphabet);
+
+let lettreChoisie = "";
+
+alphabet.forEach((letter) => {
+
+  letter.addEventListener("click", () => {
+    lettreChoisie = letter.textContent;
+    letter.classList.add('dnone')
+    lettresATrouver.forEach((lettre, index) => {
+      if (lettre.toUpperCase() === lettreChoisie) {
+        letters[index].textContent = lettreChoisie;
+      } else {
+        console.log("Lettre pas dans le mot");
+      }
+    });
   });
 });
+
+
 
 function afficherCoups() {
   let coupsRestants = nbCoups - lettres.length;
   if (coupsRestants >= 0) {
-    document.getElementById('Image').src = images[6 - coupsRestants - 1];
+    document.getElementById("Image").src = images[6 - coupsRestants - 1];
     return coupsRestants + 1;
   } else {
-    document.getElementById('Image').src = images[0];
-    return '';
+    document.getElementById("Image").src = images[0];
+    return "";
   }
 }
 
 function afficherTirets() {
-  let tirets = "";
-  for (let i = 0; i < motAlea.length; i++) {
-    tirets += "_ ";
-  }
-  return tirets;
+  lettresATrouver.forEach((letter) => {
+    let h4Element = document.createElement("h4");
+    h4Element.className = "lettreATrouver";
+    h4Element.textContent = "_";
+    motATrouver.appendChild(h4Element);
+  });
 }
 
-function motAleatoire(mots) { 
+function motAleatoire(mots) {
   const indexAleatoire = Math.floor(Math.random() * mots.length);
   return mots[indexAleatoire];
 }
@@ -77,12 +88,16 @@ function reJouer() {
   lettres = "";
   motAlea = motAleatoire(mots);
   coups.textContent = "";
-  lettreATrouver.textContent = afficherTirets();
-  document.getElementById('Image').src = image;
+  afficherTirets();
+  document.getElementById("Image").src = image;
 
-  alphabet.forEach(alpha => {
+  alphabet.forEach((alpha) => {
     alpha.disabled = false;
   });
 }
+
+afficherTirets();
+const letters = document.querySelectorAll(".lettreATrouver");
+console.log(letters);
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////

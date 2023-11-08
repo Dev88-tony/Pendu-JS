@@ -1,39 +1,52 @@
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+}
 body {
   margin: 0;
   background-color: rgb(47, 47, 48);
   min-height: 100vh;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+}
 main {
   flex: 1;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 footer {
-  padding: 10px; }
+  padding: 10px;
+}
 
-#lettreATrouver {
+.lettreATrouver {
   margin: 5rem;
   font: 900 2.5rem sans-serif;
-  color: #ffff00;}
+  color: #ffff00;
+}
+
+
 
 #coups {
   color: aqua;
-  font: 100 1.4rem sans-serif;}
+  font: 100 1.4rem sans-serif;
+}
 #btn {
   padding: 0.5rem;
   margin: 2rem;
   border-radius: 0.5rem;
   background-color: #ffff00;
   font: 900 1.5rem sans-serif;
-  cursor: pointer;}
+  cursor: pointer;
+}
 #mot {
   display: flex;
   text-align: center;
   flex-direction: column;
   align-items: center;
-  padding: 3rem; }
+  padding: 3rem;
+}
+#motATrouver {
+  display: flex;
+}
 
 #clavier {
   width: 30rem;
@@ -41,20 +54,26 @@ footer {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 10rem;}
-  .alpha {
-    width: 5rem;
-    height: 5rem;
-    background-color: lightgray;
-    border: 0.2rem solid #ffff00;
-    border-radius: 1rem;
-    display: inline-block;
-    text-align: center;
-    line-height: 5rem;
-    cursor: pointer;
-    margin: 0.5rem;
-    cursor: pointer;
-    font-size: large;}
-  .alpha:hover {
-    background-color: rgb(195, 161, 161);}
-  
+  margin-top: 10rem;
+}
+.alpha {
+  width: 5rem;
+  height: 5rem;
+  background-color: lightgray;
+  border: 0.2rem solid #ffff00;
+  border-radius: 1rem;
+  display: inline-block;
+  text-align: center;
+  line-height: 5rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  cursor: pointer;
+  font-size: large;
+}
+.alpha:hover {
+  background-color: rgb(195, 161, 161);
+}
+
+.dnone {
+  opacity:0;
+}
