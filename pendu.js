@@ -21,7 +21,6 @@ const images = [
 ////////////////////////////////////////////////////////////////////////////////////////
 
 const alphabet = document.querySelectorAll(".alpha");
-const ToucheFaite = document.getElementById("ToucheFaite");
 const coups = document.getElementById("coups");
 const lettreATrouver = document.getElementById("lettreATrouver");
 const btn = document.getElementById("btn");
@@ -72,6 +71,7 @@ function motAleatoire(mots) {
   const indexAleatoire = Math.floor(Math.random() * mots.length);
   return mots[indexAleatoire];
 }
+console.log(motAlea);
 
 function reJouer() {
   lettres = "";
