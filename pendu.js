@@ -22,15 +22,18 @@ const images = [
 
 const alphabet = document.querySelectorAll(".alpha");
 const coups = document.getElementById("coups");
-const lettreATrouver = document.getElementById("lettreATrouver");
 const btn = document.getElementById("btn");
 const image = document.getElementById("Image").src;
 const rejouer = document.getElementById("btn");
+const motATrouver = document.getElementById("motATrouver");
 let motAlea = motAleatoire(mots);
+let lettresATrouver = motAlea.split("");
+console.log(lettresATrouver);
 
 let lettres = "";
 let nbCoups = 6;
 
+<<<<<<< Updated upstream
 btn.addEventListener('click', function() {
 reJouer();
 });
@@ -70,10 +73,60 @@ return tirets;
 function motAleatoire(mots) { 
 const indexAleatoire = Math.floor(Math.random() * mots.length);
 return mots[indexAleatoire];
+=======
+btn.addEventListener("click", function () {
+  reJouer();
+});
+
+// console.log(alphabet);
+
+let lettreChoisie = "";
+
+alphabet.forEach((letter) => {
+
+  letter.addEventListener("click", () => {
+    lettreChoisie = letter.textContent;
+    letter.classList.add('dnone')
+    lettresATrouver.forEach((lettre, index) => {
+      if (lettre.toUpperCase() === lettreChoisie) {
+        letters[index].textContent = lettreChoisie;
+        
+      } else {
+        console.log("Lettre pas dans le mot");
+      }
+    });
+  });
+});
+
+function afficherCoups() {
+  let coupsRestants = nbCoups - letters.length;
+  if (coupsRestants >= 0) {
+    document.getElementById("Image").src = images[6 - coupsRestants - 1];
+    return coupsRestants + 1;
+  } else {
+    document.getElementById("Image").src = images[0];
+    return "";
+  }
+}
+
+function afficherTirets() {
+  lettresATrouver.forEach((letter) => {
+    let pElement = document.createElement("p");
+    pElement.className = "lettreATrouver";
+    pElement.textContent = "_";
+    motATrouver.appendChild(pElement);
+  });
+}
+
+function motAleatoire(mots) {
+  const indexAleatoire = Math.floor(Math.random() * mots.length);
+  return mots[indexAleatoire];
+>>>>>>> Stashed changes
 }
 console.log(motAlea);
 
 function reJouer() {
+<<<<<<< Updated upstream
 lettres = "";
 motAlea = motAleatoire(mots);
 coups.textContent = "";
@@ -83,6 +136,21 @@ document.getElementById('Image').src = image;
 alphabet.forEach(alpha => {
 alpha.disabled = false;
 });
+=======
+  lettreChoisie = "";
+  motAlea = motAleatoire(mots);
+  coups.textContent = "";
+  document.getElementById("Image").src = image;
+  lettresATrouver.textContent = afficherTirets();
+
+  alphabet.forEach((alpha) => {
+    alpha.disabled = false;
+  });
+>>>>>>> Stashed changes
 }
+
+afficherTirets();
+const letters = document.querySelectorAll(".lettreATrouver");
+console.log(letters);
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
