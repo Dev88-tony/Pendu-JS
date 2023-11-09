@@ -37,26 +37,26 @@ btn.addEventListener("click", function () {
   reJouer();
 });
 
-// console.log(alphabet);
-
 let lettreChoisie = "";
 
 alphabet.forEach((letter) => {
-
   letter.addEventListener("click", () => {
     lettreChoisie = letter.textContent;
     letter.classList.add('dnone')
+    let found = false;
     lettresATrouver.forEach((lettre, index) => {
       if (lettre.toUpperCase() === lettreChoisie) {
         letters[index].textContent = lettreChoisie;
-      } else {
-        console.log("Lettre pas dans le mot");
+        found = true;
       }
     });
+    if (!found) {
+      console.log("Lettre pas dans le mot");
+      lettres += lettreChoisie;
+      afficherCoups();
+    }
   });
 });
-
-
 
 function afficherCoups() {
   let coupsRestants = nbCoups - lettres.length;
@@ -71,10 +71,10 @@ function afficherCoups() {
 
 function afficherTirets() {
   lettresATrouver.forEach((letter) => {
-    let h4Element = document.createElement("h4");
-    h4Element.className = "lettreATrouver";
-    h4Element.textContent = "_";
-    motATrouver.appendChild(h4Element);
+    let pElement = document.createElement("p");
+    pElement.className = "lettreATrouver";
+    pElement.textContent = "_";
+    motATrouver.appendChild(pElement);
   });
 }
 
@@ -82,18 +82,19 @@ function motAleatoire(mots) {
   const indexAleatoire = Math.floor(Math.random() * mots.length);
   return mots[indexAleatoire];
 }
-console.log(motAlea);
 
 function reJouer() {
   lettres = "";
   motAlea = motAleatoire(mots);
   coups.textContent = "";
-  afficherTirets();
   document.getElementById("Image").src = image;
 
-  alphabet.forEach((alpha) => {
-    alpha.disabled = false;
+  alphabet.forEach((letter) => {
+    letter.disabled = false;
+    letter.classList.remove('dnone');
   });
+  
+  afficherTirets();
 }
 
 afficherTirets();
